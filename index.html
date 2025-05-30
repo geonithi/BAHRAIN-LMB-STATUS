@@ -174,5 +174,32 @@
         document.getElementById('printButton').addEventListener('click', printMap);
         document.getElementById('printPageButton').addEventListener('click', printPage); // Add event listener for print page button
     </script>
+function displayAttributes(attrs) {
+    var table = document.getElementById('attributes');
+    table.innerHTML = '';
+
+    for (var key in attrs) {
+        if (attrs.hasOwnProperty(key)) {
+            var row = document.createElement('tr');
+
+            var cellKey = document.createElement('td');
+            cellKey.textContent = key;
+            cellKey.style.fontWeight = 'bold';
+            cellKey.style.border = '1px solid #ddd';
+            cellKey.style.padding = '4px';
+
+            var cellValue = document.createElement('td');
+            cellValue.textContent = attrs[key];
+            cellValue.style.border = '1px solid #ddd';
+            cellValue.style.padding = '4px';
+
+            row.appendChild(cellKey);
+            row.appendChild(cellValue);
+            table.appendChild(row);
+        }
+    }
+
+    document.getElementById('attributeTable').style.display = 'block';
+}
 </body>
 </html>
